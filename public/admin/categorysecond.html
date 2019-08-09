@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>后台管理系统-首页</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/bootstrap-validator/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="assets/nprogress/nprogress.css"/>
+    <link rel="stylesheet" href="css/admin.css"/>
+    <style>
+        [type="file"]{
+            width: 80px;
+            height: 32px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<!--侧边栏-->
+<aside class="ad_aside">
+    <!--商标-->
+    <div class="brand"><a href="index.html">ITCAST</a></div>
+    <!--用户-->
+    <div class="user">
+        <img src="images/default.png" alt=""/>
+        <span>超级管理员</span>
+    </div>
+    <!--菜单-->
+    <div class="menu">
+        <ul>
+            <li><a href="userManage.html"><span class="glyphicon glyphicon-user"></span> 用户管理</a></li>
+            <li>
+                <a href="javascript:;"><span class="glyphicon glyphicon-list"></span> 分类管理</a>
+                <div class="child" style="display: none">
+                    <a href="categoryFirst.html">一级分类</a>
+                    <a href="categorySecond.html">二级分类</a>
+                </div>
+            </li>
+            <li><a href="productManage.html"><span class="glyphicon glyphicon-tags"></span> 商品管理</a></li>
+        </ul>
+    </div>
+</aside>
+<!--内容-->
+<section class="ad_section">
+    <!--顶部导航-->
+    <nav class="ad_nav">
+        <a data-menu href="javascript:;"><span class="glyphicon glyphicon-align-justify"></span></a>
+        <!--data-toggle="modal" data-target=".bs-example-modal-sm"-->
+        <a data-logout href="javascript:;"><span class="glyphicon glyphicon-log-out"></span></a>
+    </nav>
+    <div class="container-fluid">
+        <!--路径导航-->
+        <ol class="breadcrumb">
+            <li><a href="index.html">管理系统</a></li>
+            <li class="active">分类管理</li>
+            <li class="active">一级分类</li>
+        </ol>
+        <div class="ad_content">
+            <button data-toggle="modal" data-target=".box" class="btn btn-default" style="margin-bottom: 15px;">添加分类</button>
+
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>一级分类名称</th>
+                    <th>二级分类名称</th>
+                    <th>二级分类LOGO</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <!--TODO-->
+                </tbody>
+            </table>
+
+            <!--分页-->
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<!--定义模板内容-->
+<script type="text/template" id="list">
+    <%  for( var i= 0 ; i < rows.length ; i++){ %>
+        <tr>
+            <td><%=i+1+(page-1)*size%></td>
+            <td><%=rows[i].categoryName%></td>
+            <td><%=rows[i].brandName%></td>
+            <td><img width="40" height="40" src="<%=rows[i].brandLogo%>" alt=""></td>
+        </tr>
+    <%  } %>
+</script>
+
+<!--一级分类-->
+<script type="text/template" id="firstData">
+    <%  for( var i = 0 ; i < rows.length ; i++){ %>
+        <li><a href="#" data-id="<%=rows[i].id%>"><%=rows[i].categoryName%></a></li>
+    <%  } %>
+</script>
+
+<!--模块框-->
+<div class="modal fade bs-example-modal-sm box">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">添加分类</h4>
+            </div>
+            <div class="modal-body">
+                <form action="" id="form">
+                    <div class="form-group">
+                        <div>
+                            添加一级分类:
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    <span class="name">请选择</span>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <!--TODO-->
+                                </ul>
+
+                            </div>
+                        </div>
+                        <!--隐藏域: 储存选中的id值-->
+                        <input type="hidden" name="categoryId">
+                    </div>
+                    <div class="form-group">
+                        <input name="brandName" class="form-control" type="text" placeholder="请输入二级分类名称">
+                    </div>
+                    <div class="form-group" style="position: relative">
+                        <input name="pic1" type="file">
+                        <!--隐藏域表单 : 储存图片的值-->
+                        <input type="hidden" name="brandLogo">
+                        <!--隐藏域表单 :储存热度的值-->
+                        <input type="hidden" name="hot" value="1">
+                        <button class="btn btn-default">上传图片</button>
+                    </div>
+                    <img class="myImg" src="images/default.png" width="100" height="100" alt="">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button form="form" type="submit" class="btn btn-primary">确定</button>
+                <!--要关联对应的form表单   form="要关联form id值"-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="assets/jquery/jquery.min.js"></script>
+<!--上传图片-->
+
+<script src="assets/jquery-fileupload/jquery.iframe-transport.js"></script>
+<script src="assets/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="assets/jquery-fileupload/jquery.fileupload.js"></script>
+
+<script src="assets/artTemplate/template-native.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="assets/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<script src="assets/nprogress/nprogress.js"></script>
+<script src="assets/echarts/echarts.min.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/categorySecond.js"></script>
+
+</body>
+</html>

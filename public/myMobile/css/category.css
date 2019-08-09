@@ -1,0 +1,93 @@
+.lt_header form{
+    width: 100%;
+    height: 45px;
+    padding:0 45px;
+}
+.lt_header form input{
+    width: 100%;
+    height: 33px;
+    margin-top:6px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: black;
+    text-align: left;
+}
+
+/*一级分类*/
+.lt_wrapper .left{
+    width: 90px;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+}
+.lt_wrapper .left ul{
+    width: 100%;
+    height: 100%;
+}
+.lt_wrapper .left ul li{
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    text-align: center;
+    background-color: #f3f4f5;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+.lt_wrapper .left ul li a{
+    display: block;
+    color: #333;
+    font-size: 14px;
+}
+/*选中的状态*/
+.lt_wrapper .left ul li.now{
+    background: #fff;
+    border-right: none;
+}
+.lt_wrapper .left ul li.now a{
+    color: orange;
+}
+
+/*二级分类*/
+.lt_wrapper .right{
+    /*让右边的区域绝对的绝缘*/
+    overflow: hidden;
+    padding: 0 10px;
+    position: relative;
+    height: 399px;
+}
+.mui-scroll-wrapper{
+    position: absolute;
+}
+.lt_wrapper .right ul{
+    width: 100%;
+    overflow: hidden;
+    height: 400px;
+
+}
+.lt_wrapper .right ul li{
+    width: 33.33%;
+    float: left;
+    padding-top:10px;
+}
+.lt_wrapper .right ul li a{
+    display: block;
+    width: 100%;
+
+}
+.lt_wrapper .right ul li a img{
+    width: 60px;
+    height: 60px;
+    margin:0 auto;
+    display: block;
+}
+.lt_wrapper .right ul li a p{
+    text-align: center;
+    color:#666;
+}
+
+
+
+
+
+
+

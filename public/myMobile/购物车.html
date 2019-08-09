@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--在ios中能创建一个快捷启动方式-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!--ios顶部通知栏的样式是黑色-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!--遇到数字不让转化成电话号码的格式-->
+    <meta content="telephone=no" name="format-detection">
+    <!--项目的描述-->
+    <meta name="description" content="乐淘是中国最大的正品运动鞋、皮鞋网上专卖。乐淘网经营的品牌包括耐克、阿迪达斯、李宁、匡威等国内外知名品牌的篮球鞋,板鞋,休闲鞋,跑步鞋,帆布...">
+    <!--项目的关键字-->
+    <meta name="Keywords" content="乐淘 乐淘鞋城 买鞋子 上乐淘 运动鞋 篮球鞋 帆布鞋 跑步鞋 男鞋 女鞋 足球鞋 休闲鞋 凉鞋 户外鞋 布洛克 高跟鞋 单鞋 豆豆鞋 乐福鞋 牛津鞋 凉拖 皮鞋 短靴 长靴 登山鞋 徒步鞋 硫化鞋 训练鞋 溯溪鞋 越野鞋 板鞋 足球鞋 网球鞋 赛车鞋 雪地靴 马丁靴 商务 英伦">
+    <!--网站的小图标-->
+    <link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico">
+    <title>乐淘云购-首页</title>
+    <link rel="stylesheet" href="res/mui/css/mui.min.css">
+    <link rel="stylesheet" href="res/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/product.css">
+    <!--<link rel="stylesheet" href="css/会员中心.css">-->
+    <style>
+        .box{
+            background-color: #fff;
+        }
+        .mui-scroll-wrapper{
+            background-color: #EFEFF4;
+        }
+        ul{
+            padding: 10px 10px 0px 10px;
+
+        }
+        .cart_order a {
+            width: 100px;
+            text-align: center;
+            background: #ff3300;
+            display: block;
+            float: right;
+            color: #fff;
+        }
+        .cart_order {
+            height: 30px;
+            line-height: 30px;
+            border-top: 1px solid #ccc;
+            position: fixed;
+            left: 0;
+            bottom: 50px;
+            background: #fff;
+            width: 100%;
+            z-index: 999;
+            padding-left: 20px;
+            font-size: 14px;
+            color: #ff3300;
+            font-weight: 600;
+        }
+        ul li{
+            /*height: 42px;*/
+            /*margin: 10px 0px;*/
+
+            /*font-size: 12px;*/
+            /*border-bottom: 1px solid #ccc;*/
+        }
+        ul li a{
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+<!--整个版心容器-->
+<div class="lt_container">
+    <!--头部-->
+    <header class="lt_header">
+        <h4>购物车</h4>
+        <a href="javascript:history.back();" class="left"><span class="fa fa-arrow-left"></span></a>
+        <a href="javascript:" class="right"><span class="fa fa-refresh"></span></a>
+    </header>
+    <!--内容-->
+    <div class="lt_content">
+        <div class="lt_wrapper">
+            <!--添加区域滚动的结构-->
+            <div id="refreshContainer" class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <div class="box">
+                        <ul id="OA_task_2" class="mui-table-view">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart_order">订单总额：&yen;<span id="cartAmount">0.00</span> <a href="javascript:;">生成订单</a></div>
+        <!--尾部-->
+        <footer class="lt_footer">
+            <a class="fa fa-home now" href="index.html"><span>首页</span></a>
+            <a class="fa fa-bars" href="category.html"><span>分类</span></a>
+            <a class="fa fa-shopping-cart" href=""><span>购物车</span></a>
+            <a class="fa fa-user" href="个人中心.html"><span>个人中心</span></a>
+        </footer>
+
+    </div>
+</div>
+
+<script type="text/template" id="cart">
+
+    <%for(var i = 0; i < data.length;i++){%>
+
+    <li class="mui-table-view-cell mui-transitioning">
+        <div class="mui-slider-right mui-disabled">
+            <a data-id="<%=data[i].id%>" data-size="<%=data[i].size%>" data-num="<%=data[i].num%>" data-productSize="<%=data[i].productSize%>" data-max="<%=data[i].productNum%>" class="mui-btn mui-btn-primary " style="transform: translate(0px, 0px);">编辑</a>
+            <a data-id="<%=data[i].id%>" class="mui-btn mui-btn-danger " style="transform: translate(-88px, 0px);">删除</a>
+
+        </div>
+        <div class="mui-slider-handle" style="transform: translate(0px, 0px);">
+            <div class="mui-table-cell">
+                <a href="javascript:;" style="position: relative;">
+<%var pic = data[i].pic[0]&&data[i].pic[0].picAddr||"/myMobile/images/none.jpg"%>
+                    <img class="mui-media-object mui-pull-left" src="<%=pic%>">
+
+                    <div class="mui-media-body">
+
+                        <p class=''><%=data[i].proName%></p>
+                        <p><span style="color: orangered;margin-right: 10px;"><%=data[i].price%></span><span><del><%=data[i].oldPrice%></del></span><span class="mui-pull-right">x<%=data[i].num%>双</span></p>
+                        <p><span class="size">鞋码 : <%=data[i].size%></span></p>
+                        <!--<p></p>-->
+
+                    </div>
+                    <input data-num="<%=data[i].num%>" data-price="<%=data[i].price%>" type="checkbox" style="position: absolute;left: 20px;
+    bottom: 15px;">
+                </a>
+
+            </div>
+        </div>
+    </li>
+    <% } %>
+</script>
+<script type="text/template" id="edit">
+    <div class="p_size">
+        尺码：
+        <%
+        var str = productsize;
+        var arr = str.split('-');
+        %>
+        <% for(var i = arr[0];i <= arr[1];i++){ %>
+        <span class="btn_size <%=i==size?'now':'' %>"><%=i%></span>
+        <% } %>
+    </div>
+    <div class="p_number">
+        数量：
+        <span class="jian">-</span><input readonly type="text" value="<%=num%>" data-max="<%=max%>" /><span class="jia">+</span>
+    </div>
+</script>
+<script src="res/mui/js/mui.min.js"></script>
+<script src="res/zepto/zepto.min.js"></script>
+<script src="res/artTemplate/template-native.js"></script>
+<script src="js/common.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

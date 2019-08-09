@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--在ios中能创建一个快捷启动方式-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!--ios顶部通知栏的样式是黑色-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!--遇到数字不让转化成电话号码的格式-->
+    <meta content="telephone=no" name="format-detection">
+    <!--项目的描述-->
+    <meta name="description" content="乐淘是中国最大的正品运动鞋、皮鞋网上专卖。乐淘网经营的品牌包括耐克、阿迪达斯、李宁、匡威等国内外知名品牌的篮球鞋,板鞋,休闲鞋,跑步鞋,帆布...">
+    <!--项目的关键字-->
+    <meta name="Keywords" content="乐淘 乐淘鞋城 买鞋子 上乐淘 运动鞋 篮球鞋 帆布鞋 跑步鞋 男鞋 女鞋 足球鞋 休闲鞋 凉鞋 户外鞋 布洛克 高跟鞋 单鞋 豆豆鞋 乐福鞋 牛津鞋 凉拖 皮鞋 短靴 长靴 登山鞋 徒步鞋 硫化鞋 训练鞋 溯溪鞋 越野鞋 板鞋 足球鞋 网球鞋 赛车鞋 雪地靴 马丁靴 商务 英伦">
+    <!--网站的小图标-->
+    <link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico">
+    <title>乐淘云购-首页</title>
+    <link rel="stylesheet" href="res/mui/css/mui.min.css">
+    <link rel="stylesheet" href="res/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <!--<link rel="stylesheet" href="css/会员中心.css">-->
+    <style>
+        .box{
+            background-color: #fff;
+        }
+        .mui-scroll-wrapper{
+            background-color: #EFEFF4;
+        }
+        ul{
+            padding: 10px 10px 0px 10px;
+
+        }
+        ul li{
+            height: 42px;
+            margin: 10px 0px;
+
+            /*font-size: 12px;*/
+            border-bottom: 1px solid #ccc;
+        }
+        ul li a{
+            color: #000;
+        }
+        .btn{
+            width: 100%;
+            padding: 20px;
+        }
+        .btn button{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<!--整个版心容器-->
+<div class="lt_container">
+    <!--头部-->
+    <header class="lt_header">
+        <h4>个人中心</h4>
+        <a href="javascript:history.back();" class="left"><span class="fa fa-arrow-left"></span></a>
+    </header>
+    <!--内容-->
+    <div class="lt_content">
+        <div class="lt_wrapper">
+            <!--添加区域滚动的结构-->
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <div class="box">
+                       <ul>
+                           <li id="li"></li>
+                           <li style="line-height: 42px;"><a href="">账号与安全<span class="mui-icon mui-icon-arrowright mui-pull-right" style="line-height: 42px;color: #666" ></span></a></li>
+                           <li style="line-height: 42px;"><a href="">我的购物车<span class="mui-icon mui-icon-arrowright mui-pull-right" style="line-height: 42px;color: #666" ></span></a></li>
+                           <li style="line-height: 42px;border-bottom: none"><a href="address.html">收货地址管理<span class="mui-icon mui-icon-arrowright mui-pull-right" style="line-height: 42px;color: #666" ></span></a></li>
+                       </ul>
+                    </div>
+                    <div class="btn"><button class="lt-btn">退出登录</button></div>
+                </div>
+            </div>
+        </div>
+
+        <!--尾部-->
+        <footer class="lt_footer">
+            <a class="fa fa-home now" href="index.html"><span>首页</span></a>
+            <a class="fa fa-bars" href="category.html"><span>分类</span></a>
+            <a class="fa fa-shopping-cart" href="购物车.html"><span>购物车</span></a>
+            <a class="fa fa-user" href="个人中心.html"><span>个人中心</span></a>
+        </footer>
+
+    </div>
+
+    <script type="text/template" id="phone">
+
+        <a><img class=" mui-pull-left "  src="images/user.jpg" style="width: 42px;height: 42px;">
+
+            <div class="user" style="color: #666">
+                <span class="mui-icon mui-icon-arrowright mui-pull-right" style="line-height: 42px;color: #666" ></span>
+                <%=list.username%><p >绑定手机:<%=list.mobile%></p>
+
+            </div>
+
+
+        </a>
+
+
+</script>
+    <script src="res/mui/js/mui.min.js"></script>
+    <script src="res/zepto/zepto.min.js"></script>
+    <script src="res/artTemplate/template-native.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/个人中心.js"></script>
+</body>
+</html>

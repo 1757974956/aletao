@@ -1,0 +1,25 @@
+.box{
+    padding: 10px;
+}
+.box .password{
+    position: relative;
+}
+.box .password span{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #ccc;
+}
+.box .zhuce{
+    color:#007AFF ;
+    text-align: right;
+    font-size: 12px;
+}
+.box .btn button{
+    color: #fff;
+    width: 100%;
+    background-color: #007AFF;
+}
+
+
+
